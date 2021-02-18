@@ -1,2 +1,2 @@
 # trafficLights
-Arduino program for lab 1
+Arduino source code for Microprocessors II: lab 1
