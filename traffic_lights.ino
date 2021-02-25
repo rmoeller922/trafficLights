@@ -52,5 +52,4 @@ void loop() {
   buzz();
 
   digitalWrite(yellow, LOW);
-  flash = 1;
 }
