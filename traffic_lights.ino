@@ -3,7 +3,10 @@ int yellow = 6;
 int green = 4;
 int buzzer = 10;
 int button = 2;
-int flash = 1;
+int blinky = 500;
+int newTime = 0;
+int timer = 0;
+bool Mode = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -26,16 +29,21 @@ void buzz(){
 }
 
 void cycleStart(){
-  flash = 0;
+  blinky = -1;
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  while(flash == 1){
-    digitalWrite(red, HIGH);
-     delay(500);
-    digitalWrite(red, LOW);
-    delay(500);
+  while(true){
+    timer = millis();
+    if( timer - newTime == blinky ){
+      newTime = timer;
+      Mode = !Mode;
+      digitalWrite(red, Mode);
+    }
+    else if( blinky == -1){
+      break;
+    }
   }
 
   digitalWrite(red, HIGH);
